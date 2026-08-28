@@ -1,0 +1,19 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.empty {
+  margin-top: 24px;
+  color: #5e6c84;
+  text-align: center;
+}
+
+.counter {
+  margin-top: 20px;
+  color: #5e6c84;
+  font-size: 14px;
+  text-align: right;
+}

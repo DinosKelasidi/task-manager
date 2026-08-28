@@ -1,0 +1,26 @@
+<h2>Мои задачи</h2>
+
+<app-task-form (addTask)="onAddTask($event)" />
+
+<app-task-filter [current]="filter" (filterChange)="onFilterChange($event)" />
+
+@if (tasks.length === 0) {
+  <p class="empty">Задач пока нет. Добавьте первую!</p>
+} @else if (filteredTasks.length === 0) {
+  <p class="empty">В этой категории задач нет</p>
+} @else {
+  <div class="task-list">
+    @for (task of filteredTasks; track task.id) {
+      <app-task-item
+        [task]="task"
+        (toggle)="onToggle($event)"
+        (remove)="onRemove($event)"
+        (save)="onSave($event)"
+      />
+    }
+  </div>
+}
+
+@if (tasks.length > 0) {
+  <p class="counter">Осталось {{ activeCount }} {{ activeCount | tasksWord }}</p>
+}

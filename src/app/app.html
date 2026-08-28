@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="container header-inner">
+    <a routerLink="/tasks" class="logo">Менеджер задач</a>
+
+    <nav class="nav">
+      <!-- routerLinkActive сам добавит класс active той ссылке, на странице которой мы находимся -->
+      <a routerLink="/tasks" routerLinkActive="active">Задачи</a>
+      <a routerLink="/about" routerLinkActive="active">О проекте</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <!-- сюда роутер подставляет нужную страницу -->
+  <router-outlet />
+</main>

@@ -1,0 +1,25 @@
+<div class="filter">
+  <button
+    class="filter-button"
+    [class.active]="current === 'all'"
+    (click)="filterChange.emit('all')"
+  >
+    Все
+  </button>
+
+  <button
+    class="filter-button"
+    [class.active]="current === 'active'"
+    (click)="filterChange.emit('active')"
+  >
+    Активные
+  </button>
+
+  <button
+    class="filter-button"
+    [class.active]="current === 'done'"
+    (click)="filterChange.emit('done')"
+  >
+    Выполненные
+  </button>
+</div>

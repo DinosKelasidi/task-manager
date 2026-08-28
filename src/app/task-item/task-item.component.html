@@ -1,0 +1,21 @@
+<div class="task-item">
+  @if (isEditing) {
+    <!-- ngModel связывает поле ввода с переменной editTitle в обе стороны -->
+    <input class="edit-input" type="text" [(ngModel)]="editTitle" appAutofocus />
+
+    <div class="task-actions">
+      <button class="link-button" (click)="saveEdit()">Сохранить</button>
+      <button class="link-button" (click)="cancelEdit()">Отмена</button>
+    </div>
+  } @else {
+    <label class="task-label">
+      <input type="checkbox" [checked]="task.done" (change)="toggle.emit(task.id)" />
+      <span class="task-title" [class.task-done]="task.done">{{ task.title }}</span>
+    </label>
+
+    <div class="task-actions">
+      <button class="link-button" (click)="startEdit()">Изменить</button>
+      <button class="link-button link-danger" (click)="remove.emit(task.id)">Удалить</button>
+    </div>
+  }
+</div>
