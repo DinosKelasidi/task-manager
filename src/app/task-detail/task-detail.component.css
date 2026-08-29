@@ -1,0 +1,44 @@
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #5e6c84;
+  font-size: 14px;
+}
+
+.back-link:hover {
+  color: #0052cc;
+}
+
+.detail-title {
+  margin-top: 0;
+  word-break: break-word;
+}
+
+/* Выполненная задача — серая и зачёркнутая, как в списке */
+.task-done {
+  color: #97a0af;
+  text-decoration: line-through;
+}
+
+.detail-line {
+  color: #5e6c84;
+}
+
+.detail-button {
+  margin-top: 12px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #0052cc;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.detail-button:hover {
+  background-color: #0747a6;
+}
+
+.detail-empty {
+  color: #5e6c84;
+}

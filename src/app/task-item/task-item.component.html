@@ -8,10 +8,12 @@
       <button class="link-button" (click)="cancelEdit()">Отмена</button>
     </div>
   } @else {
-    <label class="task-label">
-      <input type="checkbox" [checked]="task.done" (change)="toggle.emit(task.id)" />
-      <span class="task-title" [class.task-done]="task.done">{{ task.title }}</span>
-    </label>
+    <input class="task-checkbox" type="checkbox" [checked]="task.done" (change)="toggle.emit(task.id)" />
+
+    <!-- по названию можно перейти на страницу этой задачи -->
+    <a class="task-title" [class.task-done]="task.done" [routerLink]="['/tasks', task.id]">
+      {{ task.title }}
+    </a>
 
     <div class="task-actions">
       <button class="link-button" (click)="startEdit()">Изменить</button>

@@ -14,6 +14,11 @@ export class TaskService {
     return this.tasks;
   }
 
+  // Одна задача по её id — нужна странице подробностей
+  getTaskById(id: number): Task | undefined {
+    return this.tasks.find((item) => item.id === id);
+  }
+
   addTask(title: string): void {
     const newTask: Task = {
       id: Date.now(), // время в миллисекундах — простой способ получить уникальный id

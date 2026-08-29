@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { Task } from '../task.model';
 import { AutofocusDirective } from '../autofocus.directive';
 
 @Component({
   selector: 'app-task-item',
-  imports: [FormsModule, AutofocusDirective],
+  imports: [FormsModule, AutofocusDirective, RouterLink],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.css',
 })
