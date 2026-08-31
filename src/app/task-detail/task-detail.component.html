@@ -3,6 +3,12 @@
 @if (task) {
   <h2 class="detail-title" [class.task-done]="task.done">{{ task.title }}</h2>
 
+  @if (task.description) {
+    <p class="detail-description">{{ task.description }}</p>
+  } @else {
+    <p class="detail-line">Описание не добавлено</p>
+  }
+
   <p class="detail-line">Статус: {{ task.done ? 'выполнена' : 'в работе' }}</p>
   <p class="detail-line">Номер задачи: {{ task.id }}</p>
 

@@ -30,6 +30,23 @@
   background-color: #0747a6;
 }
 
+.task-description {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.task-description:focus {
+  outline: none;
+  border-color: #0052cc;
+}
+
 .task-error {
   margin: 8px 0 0;
   color: #de350b;

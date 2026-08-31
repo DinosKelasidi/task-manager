@@ -19,10 +19,11 @@ export class TaskService {
     return this.tasks.find((item) => item.id === id);
   }
 
-  addTask(title: string): void {
+  addTask(title: string, description: string): void {
     const newTask: Task = {
       id: Date.now(), // время в миллисекундах — простой способ получить уникальный id
       title: title,
+      description: description,
       done: false,
     };
 
@@ -60,7 +61,11 @@ export class TaskService {
       return [];
     }
 
-    return JSON.parse(saved);
+    const tasks: Task[] = JSON.parse(saved);
+
+    // Задачи, сохранённые до появления описания, поля description не имеют.
+    // Подставляем пустую строку, чтобы шаблоны не наткнулись на undefined.
+    return tasks.map((task) => ({ ...task, description: task.description || '' }));
   }
 
   private saveTasks(): void {

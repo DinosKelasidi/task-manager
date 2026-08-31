@@ -20,6 +20,12 @@
   text-decoration: line-through;
 }
 
+.detail-description {
+  line-height: 1.6;
+  white-space: pre-wrap; /* переносы строк из описания не теряются */
+  word-break: break-word;
+}
+
 .detail-line {
   color: #5e6c84;
 }

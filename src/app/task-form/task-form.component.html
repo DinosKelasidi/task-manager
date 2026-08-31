@@ -1,11 +1,20 @@
-<form class="task-form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-  <input
-    class="task-input"
-    type="text"
-    formControlName="title"
-    placeholder="Что нужно сделать?"
-  />
-  <button class="task-button" type="submit">Добавить</button>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div class="task-form">
+    <input
+      class="task-input"
+      type="text"
+      formControlName="title"
+      placeholder="Что нужно сделать?"
+    />
+    <button class="task-button" type="submit">Добавить</button>
+  </div>
+
+  <textarea
+    class="task-description"
+    formControlName="description"
+    rows="2"
+    placeholder="Описание (необязательно)"
+  ></textarea>
 </form>
 
 <!-- Ошибку показываем только после того, как пользователь потрогал поле -->
@@ -18,4 +27,8 @@
       Название должно быть не короче 3 символов
     }
   </p>
+}
+
+@if (description.invalid && description.touched) {
+  <p class="task-error">Описание должно быть не длиннее 200 символов</p>
 }

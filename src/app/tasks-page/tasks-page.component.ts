@@ -41,8 +41,8 @@ export class TasksPageComponent implements OnInit {
     return this.tasks.filter((task) => !task.done).length;
   }
 
-  onAddTask(title: string): void {
-    this.taskService.addTask(title);
+  onAddTask(event: { title: string; description: string }): void {
+    this.taskService.addTask(event.title, event.description);
     this.tasks = this.taskService.getTasks();
   }
 
