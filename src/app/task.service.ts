@@ -40,6 +40,15 @@ export class TaskService {
     }
   }
 
+  updateDescription(id: number, description: string): void {
+    const task = this.tasks.find((item) => item.id === id);
+
+    if (task) {
+      task.description = description;
+      this.saveTasks();
+    }
+  }
+
   toggleTask(id: number): void {
     const task = this.tasks.find((item) => item.id === id);
 

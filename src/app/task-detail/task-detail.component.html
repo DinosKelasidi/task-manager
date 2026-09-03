@@ -3,10 +3,31 @@
 @if (task) {
   <h2 class="detail-title" [class.task-done]="task.done">{{ task.title }}</h2>
 
-  @if (task.description) {
-    <p class="detail-description">{{ task.description }}</p>
+  @if (isEditing) {
+    <!-- ngModel связывает поле с переменной editDescription в обе стороны -->
+    <textarea
+      class="detail-textarea"
+      rows="4"
+      maxlength="200"
+      placeholder="Например: позвонить до конца недели"
+      [(ngModel)]="editDescription"
+      appAutofocus
+    ></textarea>
+
+    <div class="detail-actions">
+      <button class="detail-button" (click)="saveEdit()">Сохранить</button>
+      <button class="detail-button detail-button-plain" (click)="cancelEdit()">Отмена</button>
+    </div>
   } @else {
-    <p class="detail-line">Описание не добавлено</p>
+    @if (task.description) {
+      <p class="detail-description">{{ task.description }}</p>
+    } @else {
+      <p class="detail-line">Описание не добавлено</p>
+    }
+
+    <button class="link-button" (click)="startEdit()">
+      {{ task.description ? 'Изменить описание' : 'Добавить описание' }}
+    </button>
   }
 
   <p class="detail-line">Статус: {{ task.done ? 'выполнена' : 'в работе' }}</p>
