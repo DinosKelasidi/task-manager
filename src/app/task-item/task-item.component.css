@@ -52,8 +52,12 @@
   color: #de350b;
 }
 
-.edit-input {
+.edit-block {
   flex-grow: 1;
+}
+
+.edit-input {
+  width: 100%;
   padding: 6px 8px;
   border: 1px solid #0052cc;
   border-radius: 4px;
@@ -62,4 +66,10 @@
 
 .edit-input:focus {
   outline: none;
+}
+
+.edit-error {
+  margin: 6px 0 0;
+  color: #de350b;
+  font-size: 13px;
 }

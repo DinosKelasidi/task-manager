@@ -19,17 +19,20 @@ export class TaskItemComponent {
   @Output() remove = new EventEmitter<number>();
   @Output() save = new EventEmitter<{ id: number; title: string }>();
 
-  // Режим редактирования — обычное поле компонента
+  // Режим редактирования — обычные поля компонента
   isEditing = false;
   editTitle = '';
+  editError = ''; // текст ошибки под полем, пустой — значит ошибки нет
 
   startEdit(): void {
     this.isEditing = true;
     this.editTitle = this.task.title;
+    this.editError = '';
   }
 
   cancelEdit(): void {
     this.isEditing = false;
+    this.editError = '';
   }
 
   saveEdit(): void {
@@ -37,10 +40,21 @@ export class TaskItemComponent {
 
     // такая же проверка, как в форме добавления
     if (newTitle.length < 3) {
+      this.editError = 'Название должно быть не короче 3 символов';
       return;
     }
 
     this.save.emit({ id: this.task.id, title: newTitle });
     this.isEditing = false;
+    this.editError = '';
+  }
+
+  onRemove(): void {
+    // спрашиваем подтверждение, чтобы задачу нельзя было стереть случайно
+    const confirmed = window.confirm(`Удалить задачу «${this.task.title}»?`);
+
+    if (confirmed) {
+      this.remove.emit(this.task.id);
+    }
   }
 }
