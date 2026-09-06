@@ -59,7 +59,7 @@
 1. Склонировать репозиторий и перейти в папку проекта:
 
    ```bash
-   git clone https://github.com/username/task-manager.git
+   git clone https://github.com/DinosKelasidi/task-manager.git
    cd task-manager
    ```
 
